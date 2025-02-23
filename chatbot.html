@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 98%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 97vh;
+            background-color: #ffffff;
+        }
+
+        .chat-header {
+            background: linear-gradient(10deg, #25659d, #84d0d1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            word-wrap: break-word;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #49aef1, #2e7cb0);
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bot-message {
+            background: linear-gradient(135deg, #9ed0dc, #b7d4e8);
+            color: #2c3e50;
+            align-self: flex-start;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            color: #2c3e50;
+        }
+
+        .chat-input input::placeholder {
+            color: #95a5a6;
+        }
+
+        .chat-input button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-left: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+
+        .chat-input button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .chat-header {
+                font-size: 24px;
+                padding: 15px;
+                height: 60px;
+            }
+            .chat-box {
+                padding: 15px;
+            }
+            .message {
+                max-width: 90%;
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+            .chat-input {
+                padding: 10px;
+            }
+            .chat-input input {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .chat-input button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">CBIT Study Network Chatbot</div>
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-message">Hello! How can I assist you today?</div>
+            <div class="message user-message">Hi! What is CBIT Study Network?</div>
+            <div class="message bot-message">CBIT Study Network is a collaborative platform for students to engage in group or solo study, share resources, and track their study progress with interactive tools.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Type a message..." aria-label="Type a message">
+            <button id="send-btn" type="submit">Send</button>
+        </div>
+    </div>
+</body>
+</html>

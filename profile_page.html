@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .profile-container {
+      padding: 40px;
+      background: linear-gradient(130deg, #2973B2, #84d0d1);
+      box-shadow: 0 4px 8px rgba(19, 30, 152, 0.1);
+      display: flex;
+      gap: 20px;
+    }
+
+    .left-section {
+      flex: 1;
+    }
+
+    .right-section {
+      flex: 2;
+    }
+
+    h1, h2 {
+        color: white;
+    }
+    .achievements h2{
+        color: #2973B2;
+    }
+    .achievements p{
+        color: white;
+        background-color: #3e89ca;
+        height: 35px;
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+    /* Basic User Info */
+    .basic-info {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .basic-info img{
+        padding-top: 20px;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .username {
+        color: white;
+        font-style: italic;
+    }
+
+    .branch-year {
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+    }
+
+    .bio {
+      font-size: 14px;
+      color: white;
+      max-width: 400px;
+      margin: 10px auto;
+    }
+
+    .achievements {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .badges {
+      display: flex;
+      gap: 10px;
+      height: 80px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      background-color: #3e89ca;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 12px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .study-stats {
+      margin-bottom: 20px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .stat-box {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #2973B2;
+    }
+
+    .stat-box p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #336593;
+    }
+
+    .calendar {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .calendar h2{
+        color: #2973B2;
+        text-align: center;
+    }
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .calendar th, .calendar td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .calendar th {
+        background-color: #3e89ca;
+      color: white;
+    }
+
+    .calendar td {
+      background-color: #f9f9f9;
+    }
+
+    .calendar td.today {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+    }
+
+    .calendar td.event {
+      background-color: #e74c3c;
+      color: white;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+    }
+
+    .basic-info img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .bio {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .achievements {
+        padding: 10px;
+    }
+
+    .badges {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .calendar table {
+        font-size: 12px;
+    }
+
+    .calendar th, .calendar td {
+        padding: 6px;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="left-section">
+      <div class="basic-info">
+        <img src="profile_pic.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Amballa Sneha</h1>
+        <p class="username">sneha.amballa0804@gmail.com</p>
+        <p class="branch-year">Computer Science Engineering <br><br> 2nd Year</p>
+        <p class="bio">Passionate about AI and Web Development. Planning to build a startup in the future.</p>
+      </div>
+
+      <div class="achievements">
+        <h2>Achievements & Rewards</h2>
+        <p>Coins Earned: 1200</p>
+        <div class="badges">
+          <div class="badge">10-Day Streak</div>
+          <div class="badge">Top Contributor</div>
+          <div class="badge">Resource Sharer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div class="study-stats">
+        <h2>Study Performance & Stats</h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h3>Total Hours Studied</h3>
+            <p>All-time: 500 hrs</p>
+            <p>This Month: 50 hrs</p>
+          </div>
+          <div class="stat-box">
+            <h3>Average Study Hours</h3>
+            <p>3.5 hrs/day</p>
+          </div>
+          <div class="stat-box">
+            <h3>Current Streak</h3>
+            <p>7 days</p>
+          </div>
+          <div class="stat-box">
+            <h3>Longest Streak</h3>
+            <p>30 days</p>
+          </div>
+          <div class="stat-box">
+            <h3>Group Studies</h3>
+            <p>15 sessions</p>
+          </div>
+          <div class="stat-box">
+            <h3>Solo Studies</h3>
+            <p>45 sessions</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar">
+        <h2>October 2023</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>24</td>
+              <td class="today">25</td>
+              <td>26</td>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>31</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

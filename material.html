@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(130deg, #2973B2, #84d0d1);
+      color: white;
+      text-align: center;
+      height: 100px;
+      padding-top: 30px;
+      font-size: larger;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+    }
+
+    nav ul li a:hover {
+        background: #277bc5;
+      
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .upload-section, .browse-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .upload-section h2, .browse-section h2 {
+      margin-top: 0;
+    }
+
+    .upload-section label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .upload-section input, .upload-section select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .upload-section button {
+      background: #2973B2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .upload-section button:hover {
+      background: #074c88;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .filters select, #search-bar {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      flex: 1;
+      font-size: 16px;
+    }
+
+    .notes-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .notes-table th, .notes-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .notes-table th {
+      background: #2973B2;
+      color: white;
+    }
+
+    .notes-table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .notes-table a {
+      text-decoration: none;
+    }
+
+    .notes-table a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #8eb8fa;
+      color: white;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav ul {
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .upload-section, .browse-section {
+        padding: 15px;
+    }
+
+    .notes-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .notes-table th, .notes-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    input, select, button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .upload-section, .browse-section {
+        padding: 10px;
+    }
+
+    .notes-table th, .notes-table td {
+        font-size: 12px;
+    }
+
+    input, select, button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NoteStack</h1>
+    <nav>
+      <ul>
+        <li><a href="#upload">Upload Notes</a></li>
+        <li><a href="#browse">Browse Notes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="upload" class="upload-section">
+      <h2>Upload Notes</h2>
+      <form>
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch">
+          <option value="CSE">Computer Science</option>
+          <option value="ECE">Electronics</option>
+          <option value="ME">Mechanical</option>
+          <option value="CE">Civil</option>
+          <option value="EE">Electrical</option>
+          <option value="IT">Information Technology</option>
+        </select>
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester">
+          <option value="1">Semester 1</option>
+          <option value="2">Semester 2</option>
+          <option value="3">Semester 3</option>
+          <option value="4">Semester 4</option>
+          <option value="5">Semester 5</option>
+          <option value="6">Semester 6</option>
+          <option value="7">Semester 7</option>
+          <option value="8">Semester 8</option>
+        </select>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Enter subject name">
+
+        <label for="notes">Upload Notes:</label>
+        <input type="file" id="notes" name="notes">
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+    <section id="browse" class="browse-section">
+      <h2>Browse Notes</h2>
+      <div class="filters">
+        <select id="filter-branch">
+          <option value="">All Branches</option>
+          <option value="CSE">Computer Science</option>
+          <option value="ECE">Electronics</option>
+          <option value="ME">Mechanical</option>
+          <option value="CE">Civil</option>
+          <option value="EE">Electrical</option>
+          <option value="IT">Information Technology</option>
+        </select>
+        <select id="filter-semester">
+          <option value="">All Semesters</option>
+          <option value="1">Semester 1</option>
+          <option value="2">Semester 2</option>
+          <option value="3">Semester 3</option>
+          <option value="4">Semester 4</option>
+          <option value="5">Semester 5</option>
+          <option value="6">Semester 6</option>
+          <option value="7">Semester 7</option>
+          <option value="8">Semester 8</option>
+        </select>
+        <input type="text" id="search-bar" placeholder="Search by subject..." onkeyup="filterNotes()">
+      </div>
+      <table class="notes-table">
+        <thead>
+          <tr>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>Subject</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CSE</td>
+            <td>1</td>
+            <td>Mathematics</td>
+            <td><a href="#">Download</a></td>
+          </tr>
+          <tr>
+            <td>CSE</td>
+            <td>1</td>
+            <td>Physics</td>
+            <td><a href="#">Download</a></td>
+          </tr>
+          <tr>
+            <td>CSE</td>
+            <td>2</td>
+            <td>Data Structures</td>
+            <td><a href="#">Download</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 College Notes. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

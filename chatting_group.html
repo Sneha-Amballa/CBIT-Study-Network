@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Chat and File Sharing</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      background: linear-gradient(130deg, #2973B2, #84d0d1);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .group-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .group-list li {
+      padding: 15px;
+      border-bottom: 1px solid #34495e;
+      transition: background-color 0.3s ease;
+    }
+
+    .group-list li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .group-list li:hover {
+      background-color: #34495e;
+      border-radius: 5px;
+    }
+
+    /* Main content area */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      background-color: #ecf0f1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .group-content {
+      display: none;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    .group-content:target {
+      display: flex;
+    }
+
+    .chat-box {
+      flex: 1;
+      border: 1px solid #bdc3c7;
+      background-color: white;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-box h1 {
+      margin-top: 0;
+      font-size: 2.1rem;
+      color: #2973B2;
+    }
+
+    .chat-box hr {
+      border: 0;
+      height: 1px;
+      background: #bdc3c7;
+      margin: 10px 0;
+    }
+
+    .chat-box p {
+      color: #7f8c8d;
+      font-size: 14px;
+    }
+
+    .message-input {
+      display: flex;
+      align-items: center;
+      background: white;
+      border: 1px solid #bdc3c7;
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .message-input input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px;
+      border-radius: 30px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    .message-input input[type="file"] {
+      display: none;
+    }
+
+    .message-input label {
+      background-color: #2973B2;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .message-input label:hover {
+        background-color: #1a5789;
+    }
+
+    .message-input button {
+      background-color: #2973B2;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .message-input button:hover {
+      background-color: #1a5789;
+    }
+    span{
+        height: 30px;
+        width: 40px;
+        font-size: 12px;
+        padding: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Groups</h2>
+    <ul class="group-list">
+      <li><a href="#group1">Group 1</a></li>
+      <li><a href="#group2">Group 2</a></li>
+      <li><a href="#group3">Group 3</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div id="group1" class="group-content">
+      <div class="chat-box">
+        <h1>Group 1</h1>
+        <hr>
+        <p>Chat messages will appear here.</p>
+      </div>
+      <div class="message-input">
+        <label for="file1"><i class="fa-solid fa-paperclip"></i></label>
+        <input type="file" id="file1">
+        <span>No file chosen</span>
+        <input type="text" placeholder="Type a message...">
+        <button><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <div id="group2" class="group-content">
+      <div class="chat-box">
+        <h1>Group 2</h1>
+        <hr>
+        <p>Chat messages will appear here.</p>
+      </div>
+      <div class="message-input">
+        <label for="file2"><i class="fa-solid fa-paperclip"></i></label>
+        <input type="file" id="file2">
+        <span>No file chosen</span>
+        <input type="text" placeholder="Type a message...">
+        <button><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <div id="group3" class="group-content">
+      <div class="chat-box">
+        <h1>Group 3</h1>
+        <hr>
+        <p>Chat messages will appear here.</p>
+      </div>
+      <div class="message-input">
+        <label for="file3"><i class="fa-solid fa-paperclip"></i></label>
+        <input type="file" id="file3">
+        <span>No file chosen</span>
+        <input type="text" placeholder="Type a message...">
+        <button><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

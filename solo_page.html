@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Study | Group Study Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            color: rgb(255, 255, 255);
+            background-color: aliceblue;
+        }
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(130deg,#2973B2, #479293 );
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        .logo {
+            padding-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: rgb(255, 255, 255);
+            font-size: 30px;
+        }
+        .nav-links {
+            padding-top: 30px;
+            width: 100%;
+        }
+        .nav-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-size: large;
+        }
+        .nav-links a:hover {
+            background: rgba(3, 21, 40, 0.2);
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            background-image: url(library.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100px;
+            margin-left: 10px;
+        }
+        .timer, .goals {
+            padding: 10px 20px;
+            background: rgba(38, 106, 208, 0.5);
+            border-radius: 5px;
+            font-size: larger;
+            font-weight: bold;
+        }
+        .quote {
+            font-size: 25px;
+            font-style: italic;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-top: 100px;
+            margin-bottom: 20px;
+            color: #eff6fc;
+        }
+        @media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .timer, .goals {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .quote {
+        font-size: 20px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 27px;
+        padding-top: 10px;
+    }
+
+    .nav-links {
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 2px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .timer, .goals {
+        font-size: 15px;
+        padding: 6px 12px;
+    }
+
+    .quote {
+        font-size: 23px;
+        margin-top: 40px;
+        padding-top: 70px;
+        color: #f6f7f8;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">📚 Study Zone</div>
+        <div class="nav-links">
+            <a href="home.html">🏠 Dashboard</a>
+            <a href="solo_page.html">📖 Solo Study</a>
+            <a href="todo_list.html">📝 To-Do List</a>
+            <a href="chatbot.html">💬 Chatbot</a>
+            <a href="notifications.html">🔔 Notifications</a>
+            <a href="profile_page.html">👤 Profile</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <div class="timer">⏳ Personal Timer : 50:00</div>
+            <div class="goals">🎯 Number of Session : 0 </div>
+        </div>
+        <div class="quote">
+            "When we strive to become better than we are, <br>everything around us becomes better, too." <br>
+        </div>
+    </div>
+</body>
+</html>

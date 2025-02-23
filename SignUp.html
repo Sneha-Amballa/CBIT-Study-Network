@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(140deg, #2973B2, #84d0d1);
+        }
+        .container {
+            display: flex;
+            background: #ffffff62;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .form-container {
+            padding: 20px;
+            width: 350px;
+            color: #333;
+            color: rgb(230, 237, 244)
+        }
+        h1 {
+            margin-bottom: 40px;
+        }
+        p{
+            margin-bottom: 30px;
+        }
+        .input-box {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .signup-btn {
+            width: 100%;
+            padding: 10px;
+            background: #7B2CBF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .signup-btn:hover {
+            background: #5A189A;
+        }
+        .social-signup {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .social-btn {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .illustration {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            padding: 10px;
+            margin-left: 20px;
+        }
+        img {
+            height: 270px;
+            max-width: 270px;
+            border-radius: 12px;
+        }
+        @media (max-width: 768px) {
+    body {
+        padding: 20px;
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 500px; /* Increased width for better appearance */
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    .social-signup {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-btn {
+        width: 100%;
+    }
+
+    .illustration {
+        display: none;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    .signup-btn {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Create Account</h1>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+            <div class="input-box">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="input-box">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="yourname@gmail.com" required>
+            </div>
+            <div class="input-box">
+                <label for="number">Phone Number</label>
+                <input type="tel" id="number" name="number" placeholder="Enter phone number" required>
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter 6 characters or more" required>
+            </div>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+        <div class="illustration">
+            <img src="login_picture.png" alt="Illustration">
+        </div>
+    </div>
+</body>
+</html>
