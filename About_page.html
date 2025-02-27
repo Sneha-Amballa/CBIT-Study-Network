@@ -3,215 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About_Page</title>
+    <meta name="description" content="CBIT Study Network is a collaborative platform for students to study, share resources, and succeed together. Join now for group study, live sessions, and more!">
+    <meta name="keywords" content="CBIT Study Network, study platform, collaborative learning, study groups, live study sessions, study planner, Pomodoro timer">
+    <meta name="author" content="CBIT Study Network">
+    <title>About CBIT Study Network</title>
     <style>
-        *{
-            margin: 0px;
-            padding: 0px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .cotainer{
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            background-color: #f0f3f5;
+            padding: 15px 30px;
+            height: 125px;
         }
-        .header{
+        .logo a{
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2973B2;
+            text-decoration: none;
+        }
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 55px;
+        }
+        .nav-list li {
+            font-size: 1.2rem;
+        }
+        .nav-list a {
+            text-decoration: none;
+            color: #165a8f;
+            transition: color 0.3s ease;
+        }
+        .nav-list a:hover {
+            color: #165a8f;
+        }
+        .signup-btn{
+            padding: 8px 15px;
+            background-color: #4c7ca6;
+            border-radius: 5px;
+            transition: background 0.3s;
+            color: white;
+        }
+        .signup-btn a {
+            color: white ;
+            text-decoration: none;
+        }
+        .signup-btn:hover {
+            background-color: #3b658c;
+        }
+        .header {
             height: 300px;
             background: linear-gradient(140deg, #2973B2, #84d0d1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        .heading{
+            text-align: center;
             color: aliceblue;
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 15px;
         }
-        .heading_line{
-            color: rgb(222, 228, 233);
-            font-size: large;
-            margin-bottom: 15px;
-        }
-        .what_space{
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            margin-left: 150px;
-        }
-        .head_what{
-            color: #3e99e9;
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        .what_para{
-            color: #5baaef;
-            font-size: 16px;
-        }
-        .one_image img{
-            height: 300px;
-            width: 900px;
-        }
-        .features {
-            padding: 80px 10%;
-            background: linear-gradient(200deg,#fbfbfb, #b6d7f4);
-            text-align: center;
-            color: #2973B2;
-        }
-        .features h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-        .feature {
-            display: flex;
-            align-items: center;
-            font-size: 20px;
-            margin: 15px 0;
-            justify-content: center;
-        }
-        .feature span {
-            font-size: 35px;
-            margin-right: 15px;
-        }
-        .cta {text-align: center;
-            background: linear-gradient(135deg, #2973B2, #84d0d1);
-            color: white;
-            padding: 80px 10%;
-        }
-        .cta h2 {
-            font-size: 36px;
+        .header h1 {
+            font-size: 28px;
             margin-bottom: 10px;
         }
-        .cta p {
+        .header p {
             font-size: 18px;
             margin-bottom: 20px;
         }
-        .join_btn a, .btn a {
+        .join_btn a {
             display: inline-block;
             background-color: white;
-            height: 45px;
-            width: 120px;
+            padding: 10px 20px;
             border-radius: 25px;
-            text-align: center;
-            line-height: 45px;
             font-size: 18px;
             font-weight: bold;
             color: #2973B2;
             text-decoration: none;
             transition: 0.3s ease;
         }
-        .join_btn a:hover, .btn a:hover {
-            background-color: #e3f2fd;}
-        /* Responsive Styles for Phones */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .header {
-        height: auto;
-        padding: 40px 20px;
-        text-align: center;
-    }
-
-    .heading h1 {
-        font-size: 24px;
-    }
-
-    .heading_line p {
-        font-size: 16px;
-    }
-
-    .join_btn a {
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 16px;
-    }
-
-    .what_space {
-        flex-direction: column;
-        height: auto;
-        margin-left: 0;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .head_what h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .what_para p {
-        font-size: 14px;
-    }
-
-    .one_image img {
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
-    }
-
-    .features {
-        padding: 40px 20px;
-    }
-
-    .features h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .feature {
-        flex-direction: column;
-        text-align: center;
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    .feature span {
-        font-size: 30px;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .cta {
-        padding: 40px 20px;
-    }
-
-    .cta h2 {
-        font-size: 24px;
-    }
-
-    .cta p {
-        font-size: 16px;
-    }
-    
-    .btn a {
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 16px;
-    }
-}
+        .join_btn a:hover {
+            background-color: #e3f2fd;
+        }
+        .what_space {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 10%;
+            gap: 20px;
+        }
+        .what_setence {
+            max-width: 500px;
+        }
+        .head_what {
+            font-size: 24px;
+            color: #3e99e9;
+            margin-bottom: 15px;
+        }
+        .what_para {
+            font-size: 16px;
+            color: #5baaef;
+        }
+        .one_image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .features {
+            padding: 80px 10%;
+            background: linear-gradient(200deg, #fbfbfb, #b6d7f4);
+            text-align: center;
+            color: #2973B2;
+        }
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin: 10px 0;
+            gap: 10px;
+        }
+        .feature span {
+            font-size: 30px;
+        }
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #2973B2, #84d0d1);
+            color: white;
+            padding: 60px 10%;
+        }
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn a {
+            display: inline-block;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2973B2;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+        .btn a:hover {
+            background-color: #e3f2fd;
+        }
+        footer {
+            background-color: #2973B2;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+            .logo {
+                font-size: 1rem;
+            }
+            .nav-list {
+                flex-direction: row;
+                gap: 10px;
+                padding-left: 20px;
+            }
+            .nav-list li {
+                font-size: 0.6rem;
+            }
+            .nav-list .signup-btn a {
+                width: 40px;
+                height: 30px;
+                font-size: 0.6rem;
+            }
+            .signup-btn {
+                width: 40px;
+                text-align: center;
+                height: 40px;
+            }
+            .signup-btn a{
+                font-size: small;
+            }
+            .header {
+                height: auto;
+                padding: 40px 20px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .header p {
+                font-size: 16px;
+            }
+            .what_space {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .features {
+                padding: 40px 20px;
+            }
+            .feature {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta {
+                padding: 40px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="heading"><h1>Welcome to CBIT Study Network</h1></div>
-            <div class="heading_line"><p>A collaborative platform where students study, share, and succeed together.</p></div>
-            <div class="join_btn"><a href="SignUp.html" class="btn">Join Now</a></div>
-        </div>
+    <nav class="navbar">
+        <div class="logo"><a href="home.html">CBIT Study Network</a></div>
+        <ul class="nav-list">
+            <li><a href="About_page.html">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="study_mode.html">StudySphere</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li class="signup-btn"><a href="SignUp.html">Sign Up</a></li>
+        </ul>
+    </nav>
+    <header class="header" aria-label="Welcome to CBIT Study Network">
+        <h1>Welcome to CBIT Study Network</h1>
+        <p>A collaborative platform where students study, share, and succeed together.</p>
+        <div class="join_btn"><a href="SignUp.html" aria-label="Join CBIT Study Network">Join Now</a></div>
+    </header>
+    <main>
         <div class="what_space">
             <div class="what_setence">
-                <div class="head_what"><h2>What is CBIT Study Network?</h2></div>
-                <div class="what_para"><p>CBIT Study Network is a platform designed for students to enhance their learning experience through collaborative study groups or focused solo study.</p></div>
+                <h2 class="head_what">What is CBIT Study Network?</h2>
+                <p class="what_para">CBIT Study Network is a platform designed for students to enhance their learning experience through collaborative study groups or focused solo study.</p>
             </div>
             <div class="one_image">
-                <img src="about_page_img.webp" alt="">
+                <img src="about_page_img.webp" alt="CBIT Study Network Illustration" loading="lazy">
             </div>
         </div>
         <div class="features">
@@ -223,12 +277,11 @@
             <div class="feature"><span>⏳</span><p><strong>Pomodoro Timer:</strong> Enhance focus with structured study sessions.</p></div>
             <div class="feature"><span>📂</span><p><strong>Resource Library:</strong> Access and contribute notes, PDFs, and other study materials.</p></div>
         </div>
-        
         <div class="cta">
             <h2>Ready to Elevate Your Studies?</h2>
             <p>Join CBIT Study Network today and make your study sessions more effective.</p>
-            <div class="btn"><a href="SignUp.html" >Get Started</a></div>
+            <div class="btn"><a href="SignUp.html" aria-label="Get Started with CBIT Study Network">Get Started</a></div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

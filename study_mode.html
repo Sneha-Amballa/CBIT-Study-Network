@@ -23,19 +23,40 @@
             align-items: center;
             text-align: center;
             color: white;
+            position: relative;
+            padding: 20px;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .back-button a {
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .back-button a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
         }
         .heading h1 {
-            font-size: 35px;
-            margin-bottom: 50px;
+            font-size: 32px;
+            margin-bottom: 40px;
             font-family: cursive;
         }
         .options {
-            margin-top: 50px;
             display: flex;
-            gap: 80px;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .mode a {
-            font-size: 25px;
+            font-size: 22px;
             color: #2973B2;
             text-decoration: none;
             background-color: rgb(228, 239, 249);
@@ -50,10 +71,10 @@
         .mode a:hover {
             background-color: #1e5d91;
             color: white;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
-        .material{
-            padding-top: 40px;
+        .material {
+            margin-top: 30px;
         }
         .profile_notifications {
             display: flex;
@@ -63,69 +84,81 @@
             top: 20px;
             right: 20px;
         }
-        .profile img{
+        .profile img {
             height: 50px;
             width: 50px;
             border-radius: 50%;
         }
         .notification a i {
-            font-size: 40px;
-            padding: 10px; 
-            color: rgb(243, 242, 242); 
-            transition: 0.3s ease;
+            font-size: 30px;
+            color: white;
+            transition: 0.3s;
         }
-
         .notification a:hover i {
-            color: #1e5d91; 
+            color: #1e5d91;
         }
         @media (max-width: 768px) {
             .heading h1 {
-                font-size: 23px;
+                font-size: 24px;
                 margin-bottom: 20px;
             }
             .options {
                 flex-direction: column;
-                gap: 20px;
-                width: 250px;
+                gap: 15px;
+                width: 100%;
             }
             .mode a {
-                font-size: 20px;
+                font-size: 18px;
                 padding: 12px 20px;
                 width: 80%;
                 text-align: center;
             }
             .material {
-                padding-top: 20px;
-                width: 250px;
+                margin-top: 20px;
+                width: 100%;
             }
             .profile_notifications {
                 top: 10px;
                 right: 10px;
+                gap: 10px;
             }
             .profile img {
                 height: 40px;
                 width: 40px;
             }
             .notification a i {
-                font-size: 30px;
+                font-size: 25px;
+            }
+            .back-button {
+                top: 10px;
+                left: 10px;
+            }
+            .back-button a {
+                font-size: 14px;
+                padding: 8px 15px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
 </head>
 <body>
     <div class="container">
+        <div class="back-button">
+            <a href="home.html">⬅ Return to Home</a>
+        </div>
         <div class="profile_notifications">
             <div class="notification">
                 <a href="notifications.html"><i class="fa-solid fa-bell"></i></a>
             </div>
-            <div class="profile"><a href="profile_page.html">
-                <img src="profile.jpg" alt="profile picture"></a>
+            <div class="profile">
+                <a href="profile_page.html">
+                    <img src="profile.jpg" alt="Profile Picture">
+                </a>
             </div>
         </div>
         <div class="heading">
-            <h1>Choose your path: <br> study solo, join a group, <br> or explore materials <br></h1></div>
+            <h1>Choose your path: <br> Study solo, join a group, <br> or explore materials</h1>
+        </div>
         <div class="options">
             <div class="solo mode"><a href="solo_page.html">🎧 Solo Study</a></div>
             <div class="group mode"><a href="group_page.html">👥 Group Study</a></div> 
