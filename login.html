@@ -135,5 +135,33 @@
             <img src="login_picture.png" alt="Illustration">
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginBtn = document.querySelector(".login-btn");
+    
+            loginBtn.addEventListener("click", function (event) {
+                event.preventDefault(); 
+                const email = document.querySelector("input[type='email']").value.trim();
+                const password = document.querySelector("input[type='password']").value.trim();
+                
+                if (!validateEmail(email)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+    
+                if (password.length < 6) {
+                    alert("Password must be at least 6 characters long.");
+                    return;
+                }
+    
+                alert("Login successful!"); // Replace this with actual authentication logic
+            });
+    
+            function validateEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+        });
+    </script>    
 </body>
 </html>

@@ -17,7 +17,23 @@
             align-items: center;
             height: 100vh;
             background: linear-gradient(140deg, #2973B2, #84d0d1);
+            flex-direction: column;
         }
+        
+        /* Floating Banner */
+        .banner {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: ;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .container {
             display: flex;
             background: #ffffff62;
@@ -25,26 +41,33 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
+            margin-top: 60px; /* Push down because of the banner */
+            z-index: 10;
         }
+
         .form-container {
             padding: 20px;
             width: 350px;
             color: #333;
+            position: relative;
+            z-index: 10;
         }
+
         h1 {
             margin-bottom: 40px;
         }
-        p {
-            margin-bottom: 30px;
-        }
+
         .input-box {
             margin-bottom: 15px;
+            position: relative;
         }
+
         label {
             font-size: 14px;
             display: block;
             margin-bottom: 5px;
         }
+
         input {
             width: 100%;
             padding: 10px;
@@ -52,23 +75,36 @@
             border-radius: 5px;
             margin-top: 5px;
         }
-        input:focus {
-            border-color: #2973B2;
-            outline: none;
-            box-shadow: 0 0 5px rgba(41, 115, 178, 0.5);
-        }
+
         .password-box {
             position: relative;
         }
+
+        /* Password Tooltip */
+        .tooltip {
+            position: absolute;
+            top: -30px;
+            right: 10px;
+            background: #222;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none;
+            z-index: 20;
+        }
+
+        .password-box:hover .tooltip {
+            display: block;
+        }
+
         .toggle-password {
             position: absolute;
             right: 10px;
             top: 45%;
             cursor: pointer;
         }
-        .error {
-            border: 2px solid red !important;
-        }
+
         .signup-btn {
             width: 100%;
             padding: 10px;
@@ -80,23 +116,56 @@
             font-size: 16px;
             margin-top: 15px;
         }
+
         .signup-btn:hover {
             background: #5A189A;
         }
+
         .illustration {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 40px;
             padding: 10px;
             margin-left: 20px;
         }
+
         img {
             height: 270px;
             max-width: 270px;
             border-radius: 12px;
         }
+
+        /* Modal Styling */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+            display: none;
+            z-index: 2000;
+        }
+
+        .modal button {
+            margin-top: 15px;
+            padding: 10px;
+            background: #2973B2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background: #1d5a91;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 20px;
@@ -120,27 +189,39 @@
     </style>
 </head>
 <body>
+
+    <!-- Floating Banner -->
+    <div class="banner">
+        🎉 Welcome! Sign up now and get exclusive access!
+    </div>
+
     <div class="container">
         <div class="form-container">
             <h1>Create Account</h1>
             <p>Already have an account? <a href="login.html">Login</a></p>
+
             <div class="input-box">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" placeholder="Enter your full name" required>
             </div>
+
             <div class="input-box">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" placeholder="yourname@gmail.com" required>
             </div>
+
             <div class="input-box">
                 <label for="number">Phone Number</label>
                 <input type="tel" id="number" placeholder="Enter phone number" required>
             </div>
+
             <div class="input-box password-box">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter 6 characters or more" required>
                 <span class="toggle-password">👁️</span>
+                <div class="tooltip">At least 6 characters</div>
             </div>
+
             <button class="signup-btn">Sign Up</button>
         </div>
         <div class="illustration">
@@ -148,69 +229,29 @@
         </div>
     </div>
 
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <h2>🎉 Sign-Up Successful!</h2>
+        <p>Your account has been created.</p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const signupBtn = document.querySelector(".signup-btn");
             const togglePassword = document.querySelector(".toggle-password");
             const passwordInput = document.getElementById("password");
+            const successModal = document.getElementById("successModal");
 
             signupBtn.addEventListener("click", function (event) {
                 event.preventDefault();
-                const name = document.getElementById("name");
-                const email = document.getElementById("email");
-                const number = document.getElementById("number");
-                const password = document.getElementById("password");
-
-                // Reset previous error styles
-                [name, email, number, password].forEach(input => input.classList.remove("error"));
-
-                if (name.value.trim().length < 3) {
-                    alert("Full Name must be at least 3 characters long.");
-                    name.classList.add("error");
-                    return;
-                }
-
-                if (!validateEmail(email.value)) {
-                    alert("Please enter a valid email address.");
-                    email.classList.add("error");
-                    return;
-                }
-
-                if (!validatePhone(number.value)) {
-                    alert("Please enter a valid 10-digit phone number.");
-                    number.classList.add("error");
-                    return;
-                }
-
-                if (password.value.length < 6) {
-                    alert("Password must be at least 6 characters long.");
-                    password.classList.add("error");
-                    return;
-                }
-
-                // Store data in local storage
-                const userData = {
-                    name: name.value,
-                    email: email.value,
-                    number: number.value,
-                    password: password.value
-                };
-                localStorage.setItem("user", JSON.stringify(userData));
-
-                alert("Sign-up successful! Data saved to local storage.");
+                successModal.style.display = "block";
             });
 
-            function validateEmail(email) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailPattern.test(email);
+            function closeModal() {
+                successModal.style.display = "none";
             }
 
-            function validatePhone(number) {
-                const phonePattern = /^[0-9]{10}$/;
-                return phonePattern.test(number);
-            }
-
-            // Toggle password visibility
             togglePassword.addEventListener("click", function () {
                 if (passwordInput.type === "password") {
                     passwordInput.type = "text";
@@ -220,7 +261,10 @@
                     togglePassword.textContent = "👁️";
                 }
             });
+
+            window.closeModal = closeModal;
         });
     </script>
+
 </body>
 </html>
